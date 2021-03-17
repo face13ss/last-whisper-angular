@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
-const routes: Routes = [];
+const routes: Routes = [{
+  path:'uploadfile',
+  component: UploadFileComponent
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

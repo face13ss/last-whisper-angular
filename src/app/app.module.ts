@@ -28,7 +28,8 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
     BrowserAnimationsModule,
     NgxAudioPlayerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
