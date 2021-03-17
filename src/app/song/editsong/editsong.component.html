@@ -15,7 +15,7 @@
             <div class="tab-content profile-tab" id="myTabContent">
               <div style="margin-left: 50px">
 
-                <form (ngSubmit)="editSong(song.id)">
+                <form>
                   <div>
                     <div class="row" style="margin-bottom: 25px">
                       <div class="col-md-2">
@@ -23,7 +23,7 @@
                       </div>
                       <div class="col-md-10">
                         <label>
-                          <input type="text" [(ngModel)]="song.name" name="name">
+                          <!-- <input type="text" [(ngModel)]="song.name" name="name"> -->
                         </label>
                       </div>
                     </div>
@@ -33,7 +33,7 @@
                       </div>
                       <div class="col-md-10">
                         <label>
-                          <input type="text" [(ngModel)]="song.author" name="author">
+                          <!-- <input type="text" [(ngModel)]="song.author" name="author"> -->
                         </label>
                       </div>
                     </div>
@@ -43,8 +43,8 @@
                       </div>
                       <tr>
                         <td><label for="avatar"></label></td>
-                        <td><input type="file" [(ngModel)]="song.avatar" name="avatar" id="avatar" (change)="showPreview($event)" #fileUploader></td>
-                        <img [src] = "song.avatar" style="width: 150px; height: auto" alt="Anh dai dien" (click)="fileUploader.click()" >
+                        <!-- <td><input type="file" [(ngModel)]="song.avatar" name="avatar" id="avatar" (change)="showPreview($event)" #fileUploader></td> -->
+                        <img  style="width: 150px; height: auto" alt="Anh dai dien"  >
                       </tr>
                     </div>
                     <div class="row" style="margin-bottom: 25px">
@@ -53,12 +53,12 @@
                       </div>
                       <div class="col-md-10">
                         <label>
-                          <textarea cols="75" rows="20"  [(ngModel)]="song.lyric" name="lyric"></textarea>
+                          <!-- <textarea cols="75" rows="20"  [(ngModel)]="song.lyric" name="lyric"></textarea> -->
                         </label>
                       </div>
                     </div>
                     <div>
-                      <p style="color: red" *ngIf="editSuccess">Sửa thành công</p>
+                      <!-- <p style="color: red" *ngIf="editSuccess">Sửa thành công</p> -->
                     </div>
                     <div class="row" style="margin-top: 50px">
                       <div class="col-md-3">
@@ -68,7 +68,7 @@
                       </div>
                       <div class="col-md-3">
                         <div class="row">
-                          <button type="submit" (click)="cancel()" class="profile-edit-btn" name="btnAddMore">Quay lại list</button>
+                          <!-- <button type="submit" (click)="cancel()" class="profile-edit-btn" name="btnAddMore">Quay lại list</button> -->
                         </div>
                       </div>
                     </div>
@@ -85,5 +85,5 @@
 </div>
 
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
 
