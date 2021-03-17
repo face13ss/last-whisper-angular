@@ -7,9 +7,9 @@ import { Track } from 'ngx-audio-player';
   styleUrls: ['./music-player.component.css']
 })
 export class MusicPlayerComponent implements OnInit {
-  msaapDisplayTitle = false;
-  msaapDisplayPlayList = false;
-  msaapPageSizeOptions = [2,4,6];
+  msaapDisplayTitle = true;
+  msaapDisplayPlayList = true; // Show playlist
+  msaapPageSizeOptions = [10];
   msaapDisplayVolumeControls = true;
   msaapDisplayRepeatControls = true;
   msaapDisplayArtist = false;
@@ -25,7 +25,7 @@ export class MusicPlayerComponent implements OnInit {
     },
     {
         title: 'Audio Two Title',
-        link: 'Link to Audio Two URL',
+        link: 'https://dl.dropboxusercontent.com/s/w99exjxnwoqwz0e/Cartoon-on-on-feat-daniel-levi-ncs-release.mp3?dl=0',
         artist: 'Artist',
         duration: 30
     },
