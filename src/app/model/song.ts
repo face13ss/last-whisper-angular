@@ -1,8 +1,10 @@
-export interface song{
-    id?: number;
-    avatar?: string;
-    name?: string;
-    author?: string;
-    creationTime?: string;
-    numberOfView?:string;
+export interface Song {
+  id?: number;
+  nameMusic?: string;
+  singer?: string;
+  author?:string;
+  description?: string;
+  link?: string;
+  typeMusic?: string;
 }
+

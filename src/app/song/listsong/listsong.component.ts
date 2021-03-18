@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // import {SongService} from '../../service/song/song.service';
 // import {AuthService} from '../../service/auth/auth.service';
 import {Route, Router} from '@angular/router';
-import { song } from 'src/app/model/song';
+import { Song } from 'src/app/model/song';
 
 @Component({
   selector: 'app-listsong',
@@ -11,11 +11,11 @@ import { song } from 'src/app/model/song';
   styleUrls: ['./listsong.component.css']
 })
 export class ListsongComponent implements OnInit {
+  listSong: Song[] = [];
+  currentUser: any;
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
   }
-  listSong : song[] = [];
-  currentUser : any;
   // constructor(
     // ngOnInit(): void {
       // throw new Error('Method not implemented.');
