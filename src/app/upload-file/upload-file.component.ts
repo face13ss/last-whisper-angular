@@ -18,9 +18,9 @@ export class UploadFileComponent implements OnInit {
   onFileSelected(event) {
     var n = Date.now();
     const file = event.target.files[0];
-    const filePath = `RoomsImages/${n}`;
+    const filePath = `Sound/${n}`;
     const fileRef = this.storage.ref(filePath);
-    const task = this.storage.upload(`RoomsImages/${n}`, file);
+    const task = this.storage.upload(`Sound/${n}`, file);
     task
       .snapshotChanges()
       .pipe(
