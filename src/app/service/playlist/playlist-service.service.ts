@@ -21,4 +21,9 @@ export class PlaylistServiceService {
   getAll(page: number , size: number): Observable<any>{
     return this.http.get( `${API_URL}/playlists?page=${page}&size=${size}`);
   }
+
+  /** GET: all my playlist */
+  getAllMyPlaylists(page: number, size: number, id: number): Observable<any>{
+    return this.http.get(`${API_URL}/playlists/user/${id}?page=${page}&size=${size}`);
+  }
 }

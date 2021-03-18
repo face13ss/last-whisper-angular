@@ -1,34 +1,52 @@
-<!--<nav>-->
-<!--  <a routerLink="/create">Add new Employee</a>-->
-<!--</nav>-->
-<!--<fieldset>-->
-<!--  <legend>Employees</legend>-->
-<!--  <div>-->
-<!--    <input type="text" #name placeholder="Search by name">-->
-<!--    <button (click)="searchByName(name.value)">Search</button>-->
-<!--  </div>-->
-<!--  <table>-->
-<!--    <tr>-->
-<!--      <td>Name</td>-->
-<!--      <td>Position</td>-->
-<!--      <td>Office</td>-->
-<!--      <td>Age</td>-->
-<!--      <td>Start Date</td>-->
-<!--      <td>Edit</td>-->
-<!--      <td>Delete</td>-->
-<!--    </tr>-->
-<!--    <tr *ngFor="let employee of employees">-->
-<!--      <td>{{employee.name}}</td>-->
-<!--      <td>{{employee.position.name}}</td>-->
-<!--      <td>{{employee.office.name}}</td>-->
-<!--      <td>{{employee.age}}</td>-->
-<!--      <td>{{employee.date}}</td>-->
-<!--      <td><button routerLink="/edit/{{employee.id}}">Edit</button></td>-->
-<!--      <td><button routerLink="/delete/{{employee.id}}">Delete</button></td>-->
-<!--    </tr>-->
-<!--  </table>-->
-<!--</fieldset>-->
-<!--<button *ngIf="page" (click)="previousButton()">Previous</button>-->
-<!--Page {{page + 1}} of {{totalPage}}-->
-<!--<button *ngIf="page <= totalPage" (click)="nextButton()">Next</button>-->
-<p>aaaaaaaaaaaaaaaaaaa</p>
+<!--<div>-->
+<!--  <input type="text" #name placeholder="Search by name playlist">-->
+<!--  <button (click)="searchByName(name.value)">Search</button>-->
+<!--</div>-->
+
+
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="myPlaylist">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> STT </th>
+      <td mat-cell *matCellDef="let element"> {{myPlaylist.indexOf(element)+1+size*page}} </td>
+
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="avatar">
+      <th mat-header-cell *matHeaderCellDef> Avatar </th>
+      <td mat-cell *matCellDef="let element"> {{element.avatar}} </td>
+    </ng-container>
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef> UserCreate </th>
+      <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<!--  <mat-paginator-->
+<!--    [length]="5"-->
+<!--    [pageSizeOptions]="[3, 5, 10]"-->
+<!--    [showFirstLastButtons]="firstLastButtons"-->
+<!--    (page)="onChangePage($event)">-->
+<!--  </mat-paginator>-->
+<!--  <button *ngIf="page" (click)="previousButton()">Previous</button>-->
+<!--  Page {{page + 1}} of {{totalPage}}-->
+<!--  <button *ngIf="page <= totalPage" (click)="nextButton()">Next</button>-->
+</div>
