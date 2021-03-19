@@ -14,39 +14,53 @@ export class PlaylistComponentComponent implements OnInit, AfterViewInit {
   myPlaylist: Playlist[];
   page = 0;
   size = 5;
+  sort = 'name';
   totalPage = 0;
   dataSource;
-  pgIndex = 2;
-  firstLastButtons = true;
-  pnDisabled = true;
-  hdPageSize = true;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   displayedColumns: string[] = ['id', 'name', 'description', 'avatar', 'userId'];
   constructor(private playlistServiceService: PlaylistServiceService) {
   }
   ngOnInit(): void {
-    this.getAll();
+    // this.getAll();
     this.getAllMyPlaylist();
   }
   getAll(): void {
-    this.playlistServiceService.getAll(this.page, this.size).subscribe(value => {
+    this.playlistServiceService.getAll(this.page, this.size, this.sort).subscribe(value => {
       this.playlist = value.content;
-      this.totalPage = value.totalPages;
+      this.totalPage = value.totalElements;
     }, error => {
       console.log(error);
     });
   }
-
   getAllMyPlaylist(): void{
-    this.playlistServiceService.getAllMyPlaylists(this.page, this.size, this.id).subscribe( value => {
+    this.playlistServiceService.getAllMyPlaylists(this.page, this.size, this.id, this.sort).subscribe( value => {
       this.myPlaylist = value.content;
-      this.totalPage = value.totalPages;
+      this.totalPage = value.totalElements;
     }, error => {
       console.log(error);
     });
   }
-
   ngAfterViewInit(): void {
+  }
+  onChangeEven(even: PageEvent): void{
+    this.page = even.pageIndex;
+    this.size = even.pageSize;
+    this.getAllMyPlaylist();
+  }
+
+  takeSort(event: string): void{
+    this.sort = event;
+    this.getAllMyPlaylist();
+  }
+
+  searchByName(name: string): void{
+    this.playlistServiceService.getAllMyPlaylistsByName(this.page, this.size, this.id, this.sort, name).subscribe(value => {
+      this.myPlaylist = value.content;
+      this.totalPage = value.totalElements;
+    }, error => {
+      console.log(error);
+    });
   }
 }

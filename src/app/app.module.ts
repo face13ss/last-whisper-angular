@@ -9,7 +9,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +26,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+
+  // @ts-ignore
+  export class AppModule {}

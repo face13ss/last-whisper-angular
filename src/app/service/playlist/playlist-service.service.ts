@@ -18,12 +18,17 @@ export class PlaylistServiceService {
   //   return this.http.get<Playlist[]>(API_URL + '/playlists');
   // }
   /** GET: all playlist */
-  getAll(page: number , size: number): Observable<any>{
-    return this.http.get( `${API_URL}/playlists?page=${page}&size=${size}`);
+  getAll(page: number , size: number, sort: string): Observable<any>{
+    return this.http.get( `${API_URL}/playlists?page=${page}&size=${size}&sort=${sort}`);
   }
 
   /** GET: all my playlist */
-  getAllMyPlaylists(page: number, size: number, id: number): Observable<any>{
-    return this.http.get(`${API_URL}/playlists/user/${id}?page=${page}&size=${size}`);
+  getAllMyPlaylists(page: number, size: number, id: number, sort: string): Observable<any>{
+    return this.http.get(`${API_URL}/playlists/user/${id}?page=${page}&size=${size}&sort=${sort}`);
+  }
+
+  /** GET: all my playlist by name */
+  getAllMyPlaylistsByName(page: number, size: number, id: number, sort: string, name: string): Observable<any>{
+    return this.http.get(`${API_URL}/playlists/search/${id}?page=${page}&size=${size}&sort=${sort}&name=${name}`);
   }
 }
