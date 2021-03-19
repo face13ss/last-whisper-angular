@@ -15,6 +15,7 @@ import { ListsongComponent } from './song/listsong/listsong.component';
 // import { PlaylistComponentComponent } from './component/playlist-component/playlist-component.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { CreatePlaylistComponent } from './playlist/create-playlist/create-playlist.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     HeaderComponent,
     SidebarComponent,
     ListsongComponent,
+    CreatePlaylistComponent,
     // PlaylistComponentComponent
   ],
   imports: [
