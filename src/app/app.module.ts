@@ -3,28 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import { AdminComponent } from './component/admin/admin.component';
-import { LoginHomeComponent } from './component/login-home/login-home.component';
-import { RegisComponent } from './component/regis/regis.component';
-
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { MusicPlayerComponent } from './music-player/music-player.component';
+import { environment } from "../environments/environment";
+import { AngularFireModule } from '@angular/fire';
+import {
+  AngularFireStorageModule,
+  AngularFireStorageReference,
+  AngularFireUploadTask
+} from "@angular/fire/storage";
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
-    AdminComponent,
-    LoginHomeComponent,
-    RegisComponent
-
+    MusicPlayerComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgxAudioPlayerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
