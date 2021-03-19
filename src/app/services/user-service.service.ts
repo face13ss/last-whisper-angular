@@ -9,10 +9,14 @@ import {HttpClient} from '@angular/common/http';
 export class UserServiceService {
   url = 'http://localhost:8080/register';
 
+
   constructor(private http: HttpClient) {
   }
 
   create(user: User): Observable<any> {
     return this.http.post<User>(this.url, user);
   }
+
+
+
 }

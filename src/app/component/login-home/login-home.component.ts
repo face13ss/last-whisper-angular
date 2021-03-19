@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
@@ -10,14 +10,16 @@ import {Router} from "@angular/router";
 })
 export class LoginHomeComponent implements OnInit {
 
-  message?: string  ;
+  message?: string;
   formLogin = this.fb.group({
     fullName: [''],
     password: ['']
   });
+
   constructor(private fb: FormBuilder,
               private authService: AuthService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -26,12 +28,17 @@ export class LoginHomeComponent implements OnInit {
   login() {
     // @ts-ignore
     this.authService.login(this.formLogin.value).subscribe(res => {
+
       if (res.error === 'Unauthorized') {
         console.log('3232');
         this.message = 'Unauthorized';
       } else {
         localStorage.setItem('token', res.token);
+
         this.router.navigate(['admin']);
+        this.authService.getUserAuthor(res.username).subscribe(val => {
+          console.log(val);
+        })
       }
     });
   }

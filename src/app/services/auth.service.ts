@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class AuthService {
   url = 'http://localhost:8080/login';
+  erl = 'http://localhost:8080/user';
 
   constructor(private router: Router,
               private http: HttpClient) { }
@@ -17,7 +18,13 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
+
+
   login(data: any): Observable<any> {
-    return this.http.post(this.url, data, );
+    return this.http.post(this.url, data);
+  }
+
+  getUserAuthor(data: any): Observable<any> {
+    return this.http.get(this.erl+'/'+data );
   }
 }
